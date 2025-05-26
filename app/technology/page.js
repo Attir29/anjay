@@ -16,15 +16,15 @@ export default function page() {
         <img
           src={technology[activeIndex].image}
           alt={technology[activeIndex].name}
-          className="max-h-[258px] w-full object-cover object-center md:max-h-[700px]"
+          className="max-h-[258px] w-full object-cover object-center sm:max-h-[360px] md:max-h-[700px]"
         />
-        <div className="flex flex-row">
-          <div className="flex ">
+        <div className="flex flex-col w-full justify-center items-center p-6 gap-10 md:flex-row">
+          <div className="flex gap-4 md:flex-col">
             {technology.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-10 h-10 rounded-full border-[1px] boreder-white ${
+                className={`w-10 h-10 rounded-full border-[1px] boreder-white sm:w-[56px] sm:h-[56px] md:w-20 md:h-20 ${
                   index === activeIndex
                     ? "bg-white text-black"
                     : "border-[#504F59]"
@@ -35,10 +35,19 @@ export default function page() {
             ))}
           </div>
 
-          <div className="flex flex-col">
-            <h1>{technology[activeIndex].tag}</h1>
-            <h1>{technology[activeIndex].name}</h1>
-            <p>{technology[activeIndex].description}</p>
+          <div className="flex flex-col w-full justify-center items-center text-center gap-4 md:justify-start md:items-start md:text-left">
+            <div className="flex flex-col gap-3">
+              <h1 className="belle text-[#504F59] text-[18px] sm:text-[24px] md:text-[32px]">
+                {technology[activeIndex].tag}
+              </h1>
+              <h1 className="belle text-[24px] sm:text-[40px] md:text-[56px]">
+                {technology[activeIndex].name}
+              </h1>
+            </div>
+
+            <p className="text-[#D0D6F9] text-[16px] md:text-[18px]">
+              {technology[activeIndex].description}
+            </p>
           </div>
         </div>
       </div>
